@@ -22,10 +22,11 @@ class LGManager {
     
     private static var bundle: Bundle!
     
+    ///Load saved language prefix if any, default *en*.
     public static func localizedBundle() -> Bundle! {
         if bundle == nil {
-            let appLang = UserDefaults.standard.string(forKey: "app_lang") ?? "mk-MK"
-            let path = Bundle.main.path(forResource: appLang, ofType: "lproj")
+            let selectedLanguagePrefix = UserDefaults.standard.string(forKey: "app_lang") ?? "en"
+            let path = Bundle.main.path(forResource: selectedLanguagePrefix, ofType: "lproj")
             self.bundle = Bundle(path: path!)
         }
         return bundle;
@@ -44,8 +45,8 @@ class LGManager {
     }
     
     ///Current selected language.
-    static var selectedLanguage: String {
-        return UserDefaults.standard.string(forKey: "app_lang") ?? "mk-MK"
+    class func selectedLanguage(defaultPrefix: String = "en") -> String {
+        return UserDefaults.standard.string(forKey: "app_lang") ?? defaultPrefix
     }
 }
 
