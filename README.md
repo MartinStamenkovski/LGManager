@@ -29,3 +29,5 @@ LGManager.setLanguage(with: "<#prefix#>")
      keyWindow.makeKeyAndVisible()
   }, completion: nil)
 ```
+## License
+[MIT](https://github.com/MartinStamenkovski/LGManager/blob/master/LICENSE)
